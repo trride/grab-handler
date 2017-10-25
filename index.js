@@ -74,3 +74,5 @@ class Grab {
     };
   }
 }
+
+module.exports = Grab;

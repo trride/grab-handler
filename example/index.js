@@ -1,6 +1,9 @@
-require("dotenv");
+require("dotenv").config();
+
+const Grab = require("../");
 
 const exampleToken = process.env.GRAB_TOKEN;
+// console.log(process.env);
 const { getMotorBikePrice } = new Grab(exampleToken);
 
 getMotorBikePrice(
