@@ -32,7 +32,7 @@ class Grab {
   }
 
   async getMotorBikePrice(start = {}, end = {}) {
-    if (!start.lon || !start.lat || !end.lat || !end.lon) {
+    if (!start.long || !start.lat || !end.lat || !end.long) {
       throw new Error("no start or end lat/lon");
     }
     const url = "/api/passenger/v3/quotes";
@@ -42,7 +42,7 @@ class Grab {
       {
         coordinates: {
           latitude: start.lat,
-          longitude: start.lon
+          longitude: start.long
         },
         details: {
           address: ARBITRARY_STR,
@@ -52,7 +52,7 @@ class Grab {
       {
         coordinates: {
           latitude: end.lat,
-          longitude: end.lon
+          longitude: end.long
         },
         details: {
           address: ARBITRARY_STR,
