@@ -68,9 +68,11 @@ class Grab {
     // Should only return 1 member of array from the defined Services
     const { fixed, lowerBound, upperBound } = unsanitized[0];
     return {
-      fixed,
-      high: upperBound,
-      low: lowerBound
+      price: {
+        fixed,
+        high: upperBound,
+        low: lowerBound
+      }
     };
   }
 }
