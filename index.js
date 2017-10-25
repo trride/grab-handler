@@ -70,8 +70,8 @@ class Grab {
     return {
       price: {
         fixed,
-        high: upperBound,
-        low: lowerBound
+        high: upperBound / 100,
+        low: lowerBound / 100
       }
     };
   }
