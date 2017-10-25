@@ -1,0 +1,19 @@
+{
+  "services": [71],
+  "itinerary": [
+    {
+      "details": {
+        "address": "ARBITRARY",
+        "keywords": "ARBITRARY"
+      },
+      "coordinates": { "latitude": -7.2266182, "longitude": 106.8073293 }
+    },
+    {
+      "details": {
+        "address": "ARBITRARY",
+        "keywords": "ARBITRARY"
+      },
+      "coordinates": { "latitude": -6.2266182, "longitude": 106.8073293 }
+    }
+  ]
+}

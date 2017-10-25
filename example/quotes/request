@@ -1,0 +1,16 @@
+POST /api/passenger/v3/quotes HTTP/1.1
+
+REQUIRED: 
+x-mts-ssid: REDACTED
+
+OPTIONAL:
+x-request-id: 2f64b522-XXXX-4fa1-XXXX-22dbb402d115
+Accept-Language: en-us;q=1.0, en;q=0.9
+User-Agent: Grab/4.37.0 (Android 5.1.1)
+Content-Type: application/json; charset=UTF-8
+Content-Length: 611
+Host: p.grabtaxi.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+BODY: require('./request.payload')
