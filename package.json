@@ -1,6 +1,6 @@
 {
   "name": "tride-grab-handler",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:trride/grab-handler.git",
   "author": "<muhammad.mustadi@gmail.com>",
