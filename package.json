@@ -1,0 +1,11 @@
+{
+  "name": "grab-handler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:trride/grab-handler.git",
+  "author": "<muhammad.mustadi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.0"
+  }
+}
