@@ -4,13 +4,16 @@ require("dotenv").config();
 const Grab = require("./");
 
 const exampleToken = process.env.GRAB_TOKEN;
-// console.log(process.env);
-const { getMotorBikePrice } = new Grab(exampleToken);
+const { getMotorBikePrice, getCurrentProfile } = new Grab(exampleToken);
 
-// getMotorBikePrice(
-//   { lat: -7.2266182, long: 106.8073293 },
-//   { lat: -6.2266182, long: 106.8073293 }
-// ).then(console.log);
+const TYPE = {
+  OBJECT: "object",
+  FUNCTION: "function",
+  STRING: "string",
+  NUMBER: "number",
+  BOOLEAN: "boolean",
+  UNDEFINED: "undefined"
+};
 
 test("Sanity check", t => {
   t.pass();
@@ -23,9 +26,13 @@ test("Get Motor Bike Price", async t => {
     { lat: -7.2266182, long: 106.8073293 },
     { lat: -6.2266182, long: 106.8073293 }
   );
-  t.is(typeof data, "object");
-  t.is(typeof data.price, "object");
-  t.is(typeof data.price.fixed, "boolean");
-  t.is(typeof data.price.high, "number");
-  t.is(typeof data.price.low, "number");
+  t.is(typeof data, TYPE.OBJECT);
+  t.is(typeof data.price, TYPE.OBJECT);
+  t.is(typeof data.price.fixed, TYPE.BOOLEAN);
+  t.is(typeof data.price.high, TYPE.NUMBER);
+  t.is(typeof data.price.low, TYPE.NUMBER);
+});
+
+test("Get Current Profile", async t => {
+  t.is(typeof getCurrentProfile, TYPE.FUNCTION);
 });

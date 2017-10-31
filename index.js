@@ -16,19 +16,28 @@ class Grab {
       responseType: "json",
       timeout: 10000,
       headers: {
-        "x-mts-ssid": grabToken
+        "x-mts-ssid": grabToken + "typo"
       }
     });
     this.fetch = async ({ method, url, params, data }) => {
-      const response = await this.grabBase({
-        method,
-        url,
-        params,
-        data
-      });
-      return response.data;
+      try {
+        const response = await this.grabBase({
+          method,
+          url,
+          params,
+          data
+        });
+        return response.data;
+      } catch ({ response }) {
+        throw {
+          status: response.status,
+          statusText: "[grab-handler] " + response.statusText,
+          data: response.data
+        };
+      }
     };
     this.getMotorBikePrice = this.getMotorBikePrice.bind(this);
+    this.getCurrentProfile = this.getCurrentProfile.bind(this);
   }
 
   async getMotorBikePrice(start = {}, end = {}) {
@@ -75,6 +84,8 @@ class Grab {
       }
     };
   }
+
+  async getCurrentProfile() {}
 }
 
 module.exports = Grab;
