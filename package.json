@@ -9,10 +9,13 @@
     "axios": "^0.17.0"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
     "dotenv": "^4.0.0",
     "np": "^2.16.0"
   },
   "scripts": {
-    "release": "np"
+    "release": "np",
+    "test": "ava",
+    "watch": "npm test -- --watch --verbose"
   }
 }
