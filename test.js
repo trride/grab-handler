@@ -35,4 +35,8 @@ test("Get Motor Bike Price", async t => {
 
 test("Get Current Profile", async t => {
   t.is(typeof getCurrentRides, TYPE.FUNCTION);
+  const data = await getCurrentRides();
+  t.is(typeof data, TYPE.OBJECT);
+  t.is(typeof data.rides, TYPE.OBJECT);
+  t.is(typeof data.deliveries, TYPE.OBJECT);
 });
