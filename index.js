@@ -16,7 +16,7 @@ class Grab {
       responseType: "json",
       timeout: 10000,
       headers: {
-        "x-mts-ssid": grabToken + "typo"
+        "x-mts-ssid": grabToken
       }
     });
     this.fetch = async ({ method, url, params, data }) => {
@@ -37,7 +37,7 @@ class Grab {
       }
     };
     this.getMotorBikePrice = this.getMotorBikePrice.bind(this);
-    this.getCurrentProfile = this.getCurrentProfile.bind(this);
+    this.getCurrentRides = this.getCurrentRides.bind(this);
   }
 
   async getMotorBikePrice(start = {}, end = {}) {
@@ -85,7 +85,12 @@ class Grab {
     };
   }
 
-  async getCurrentProfile() {}
+  async getCurrentRides() {
+    const url = "/api/passenger/v3/current";
+    const method = "get";
+    const data = await this.fetch({ url, method });
+    return data;
+  }
 }
 
 module.exports = Grab;

@@ -4,7 +4,7 @@ require("dotenv").config();
 const Grab = require("./");
 
 const exampleToken = process.env.GRAB_TOKEN;
-const { getMotorBikePrice, getCurrentProfile } = new Grab(exampleToken);
+const { getMotorBikePrice, getCurrentRides } = new Grab(exampleToken);
 
 const TYPE = {
   OBJECT: "object",
@@ -34,5 +34,5 @@ test("Get Motor Bike Price", async t => {
 });
 
 test("Get Current Profile", async t => {
-  t.is(typeof getCurrentProfile, TYPE.FUNCTION);
+  t.is(typeof getCurrentRides, TYPE.FUNCTION);
 });
