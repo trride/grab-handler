@@ -1,0 +1,296 @@
+[
+  // GET /api/passenger/v3/services?latitude=-6.2262628&longitude=106.8084354 HTTP/1.1
+  // x-request-id: 5e603098-0d33-41fc-a966-5fc87ee97ba2
+  // Accept-Language: en-us;q=1.0, en;q=0.9
+  // User-Agent: Grab/4.38.2 (Android 5.1.1)
+  // x-mts-ssid: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJQQVNTRU5HRVIiLCJleHAiOjQ2NTUyOTAwMDUsImlhdCI6MTUwMTY5MDAwNSwianRpIjoiZjJkOWUwNDEtOTFhYy00MGYzLTk1NzktYWU2YWIxNTJkOWNiIiwibG1lIjoiU1lTVEVNIiwibmFtZSI6IiIsInN1YiI6ImRkNmI2ZmViLWE1NGYtNDBjOC1hODJjLTkwMGQxZWY2NWYwNyJ9.Pu5P7t_nSLgu7Qjl4tEw4sangbRU8Tau9gY4GKIUUVSNOm_ayt17aKYVwf5NG6-_7lhw_RIItDbWuHsEnSyTo7RA7w-5_mAP6z0A_9s0p_oEb8odKoMRgNANXSG_0I8FL7dg3YJRfi5XfP1eYcXil06Ha5PWm_T9rKOL9uqKfnQYJwfkWn18OdzkWPr95b59PSauV4DcHHjbw5F1bLBr5iqDR7MraSSSt27ECwBKQ1iyCQU63r7xCZZunABdGUeOesRYp51m2fYtm6lQOKB9GSCz0GvZ9LvfNrVfqY8KZ35I-MAbxJmNS8Z-LNupUFo_lRqMTsJgI283C08Lh2ghFMsjpS82IL9NfwHX6u7W4Yleh0PBKq3ViuVEy4q_vUruiS80zYK1EeTo4AyqYa_48JmGp1947iy4osyi0KwMI2sBjZL5O7ctpwXFhhTZ4AagkGjW2J4ZqxEPM8KPHEMnQ3687uk8vsYhSlxzbGLP_LJUn7HdJmqIlD7jPct-NPywb1cR3gjCeaJNM-_JjD2D0b5plCF2tjxdRy9_XKOIoN4CaKYlPvB8OM8cqEm92Usawydna24zvosPU5rRBIPn_SI3QLmm_MVE6hevg1S6EK3K3RuSQpH3YCeQVdS_oK5_9j2CtuYLomp-QkUe2See3XhKDJ-y67ox8qCt0ngGNGk
+  // Host: p.grabtaxi.com
+  // Connection: Keep-Alive
+  // Accept-Encoding: gzip
+  // If-Modified-Since: Fri, 27 Oct 2017 10:11:33 GMT
+
+  // HTTP/1.1 200 OK
+  // Content-Type: application/json; charset=utf-8
+  // Date: Fri, 27 Oct 2017 13:06:43 GMT
+  // X-Api-Source: grabapi
+  // X-Request-Id: 3ad54054-9ad3-48c7-bc3d-73a0385fdef0
+  // Content-Length: 1336
+  // Connection: keep-alive
+
+  {
+    "categoryName": "Food",
+    "groups": [
+      {
+        "groupName": "GrabFood",
+        "order": 100,
+        "serviceAndPool": [
+          {
+            "service": {
+              "ID": 155,
+              "name": "GrabFood",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/155/icon/deprecated_icon-1478717613.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/155",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage": "",
+                "pinType": "BIKE",
+                "groupOrder": 10,
+                "flow": "MULTISTEP_MENU",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryName": "Delivery",
+    "groups": [
+      {
+        "groupName": "GrabExpress",
+        "order": 100,
+        "serviceAndPool": [
+          {
+            "service": {
+              "ID": 132,
+              "name": "GrabExpress",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/132/icon/deprecated_icon-1453997383.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/132",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage":
+                  "Kurir GrabExpress menggunakan sepeda motor untuk mengantarkan barang. Pastikan kemasan, ukuran dan isi barang aman untuk proses pengiriman",
+                "pinType": "BIKE",
+                "groupOrder": 10,
+                "flow": "MULTISTEP_DETAILS",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryName": "Transport",
+    "groups": [
+      {
+        "groupName": "Economy",
+        "order": 100,
+        "serviceAndPool": [
+          {
+            "service": {
+              "ID": 97,
+              "name": "GrabCar",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/97/icon/deprecated_icon-1483204389.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/97",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage":
+                  "Harap periksa kembali tarif perjalanan Anda sebelum melakukan konfirmasi pesanan",
+                "pinType": "CAR",
+                "groupOrder": 20,
+                "flow": "BOOK",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 2 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": null,
+              "fallbackServices": [{ "ID": 325 }]
+            },
+            "pool": null
+          },
+          {
+            "service": {
+              "ID": 71,
+              "name": "GrabBike",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/71/icon/deprecated_icon-1453983258.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/71",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage":
+                  "Tarif min. Rp. 5rb, Rp. 1.500/km. Di atas 10km Rp. 3.000/km. Tmbhn jam sibuk otomatis terhitung, byr sesuai app. S\u0026K berlaku.",
+                "pinType": "BIKE",
+                "groupOrder": 60,
+                "flow": "BOOK",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 2 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": {
+                "pairingModes": ["GOOGLE_NEARBY", "PIN_MATCHING"],
+                "driverIndicator": "NONE"
+              },
+              "fallbackServices": [{ "ID": 185 }]
+            },
+            "pool": null
+          },
+          {
+            "service": {
+              "ID": 185,
+              "name": "GrabHitch (Nebeng) Bike",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/185/icon/deprecated_icon-1472693608.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/130",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage": "",
+                "pinType": "BIKE",
+                "groupOrder": 110,
+                "flow": "BOOK",
+                "descriptor": "Book at least 10 mins in advance"
+              },
+              "advance": { "minInterval": 10, "maxInterval": 10080 },
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          },
+          {
+            "service": {
+              "ID": 325,
+              "name": "GrabHitch (Nebeng) Car",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/325/icon/deprecated_icon-1490862244.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/130",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage": "",
+                "pinType": "CAR",
+                "groupOrder": 120,
+                "flow": "BOOK",
+                "descriptor": "Book at least 10 mins in advance"
+              },
+              "advance": { "minInterval": 15, "maxInterval": 10080 },
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          },
+          {
+            "service": {
+              "ID": 23,
+              "name": "GrabTaxi",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/23/icon/deprecated_icon-1483204421.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/23",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage":
+                  "Tarif minimum sebesar Rp 30.000 telah diberlakukan per tanggal 12 Februari 2016 untuk meningkatkan layanan GrabTaxi di Jakarta.",
+                "pinType": "TAXI",
+                "groupOrder": 130,
+                "flow": "BOOK",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH"],
+              "hailingOptions": null,
+              "fallbackServices": [{ "ID": 325 }]
+            },
+            "pool": null
+          },
+          {
+            "service": {
+              "ID": 166,
+              "name": "GrabTaxi Promo",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/166/icon/deprecated_icon-1483204297.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/166",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage": "",
+                "pinType": "TAXI",
+                "groupOrder": 140,
+                "flow": "BOOK",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          },
+          {
+            "service": null,
+            "pool": {
+              "name": "Nearest Car or Taxi",
+              "display": {
+                "iconURL":
+                  "https://d1hl8xn407evp1.cloudfront.net/production/fallback/taxitype-78ea7b26df1bae43ba4d2b34e475700c159ab953.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/135",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage": "Coming Soon",
+                "pinType": "POOL",
+                "groupOrder": 150,
+                "flow": "MULTISTEP_DETAILS",
+                "descriptor": ""
+              },
+              "serviceIDs": [97, 166]
+            }
+          },
+          {
+            "service": {
+              "ID": 269,
+              "name": "GrabShare",
+              "display": {
+                "iconURL":
+                  "https://myteksi.s3.amazonaws.com/production/uploads/taxi_type/269/icon/deprecated_icon-1489717994.png",
+                "infoURL": "https://p.grabtaxi.com/info_view/vehicles/269",
+                "enablePromo": true,
+                "enableNotes": true,
+                "warningMessage":
+                  "Layanan berbagi kendaraan, dimana tarif lebih hemat hingga 50% dari GrabCar!",
+                "pinType": "SHARE",
+                "groupOrder": 170,
+                "flow": "BOOK",
+                "descriptor": ""
+              },
+              "advance": null,
+              "dropoff": { "min": 1, "max": 1 },
+              "paymentMethods": ["CASH", "CARD"],
+              "hailingOptions": null,
+              "fallbackServices": []
+            },
+            "pool": null
+          }
+        ]
+      }
+    ]
+  }
+]

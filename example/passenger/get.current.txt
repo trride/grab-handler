@@ -1,0 +1,19 @@
+GET /api/passenger/v3/current HTTP/1.1
+x-request-id: 5611c3ba-b868-48db-b7cc-d0fe129c2982
+Accept-Language: en-us;q=1.0, en;q=0.9
+User-Agent: Grab/4.38.2 (Android 5.1.1)
+x-mts-ssid: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJQQVNTRU5HRVIiLCJleHAiOjQ2NTUyOTAwMDUsImlhdCI6MTUwMTY5MDAwNSwianRpIjoiZjJkOWUwNDEtOTFhYy00MGYzLTk1NzktYWU2YWIxNTJkOWNiIiwibG1lIjoiU1lTVEVNIiwibmFtZSI6IiIsInN1YiI6ImRkNmI2ZmViLWE1NGYtNDBjOC1hODJjLTkwMGQxZWY2NWYwNyJ9.Pu5P7t_nSLgu7Qjl4tEw4sangbRU8Tau9gY4GKIUUVSNOm_ayt17aKYVwf5NG6-_7lhw_RIItDbWuHsEnSyTo7RA7w-5_mAP6z0A_9s0p_oEb8odKoMRgNANXSG_0I8FL7dg3YJRfi5XfP1eYcXil06Ha5PWm_T9rKOL9uqKfnQYJwfkWn18OdzkWPr95b59PSauV4DcHHjbw5F1bLBr5iqDR7MraSSSt27ECwBKQ1iyCQU63r7xCZZunABdGUeOesRYp51m2fYtm6lQOKB9GSCz0GvZ9LvfNrVfqY8KZ35I-MAbxJmNS8Z-LNupUFo_lRqMTsJgI283C08Lh2ghFMsjpS82IL9NfwHX6u7W4Yleh0PBKq3ViuVEy4q_vUruiS80zYK1EeTo4AyqYa_48JmGp1947iy4osyi0KwMI2sBjZL5O7ctpwXFhhTZ4AagkGjW2J4ZqxEPM8KPHEMnQ3687uk8vsYhSlxzbGLP_LJUn7HdJmqIlD7jPct-NPywb1cR3gjCeaJNM-_JjD2D0b5plCF2tjxdRy9_XKOIoN4CaKYlPvB8OM8cqEm92Usawydna24zvosPU5rRBIPn_SI3QLmm_MVE6hevg1S6EK3K3RuSQpH3YCeQVdS_oK5_9j2CtuYLomp-QkUe2See3XhKDJ-y67ox8qCt0ngGNGk
+Host: p.grabtaxi.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+If-Modified-Since: Fri, 27 Oct 2017 10:08:31 GMT
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 27 Oct 2017 13:06:41 GMT
+X-Api-Source: grabapi
+X-Request-Id: 34a8fad3-c00a-40a2-849e-52ab0883dae7
+Content-Length: 72
+Connection: keep-alive
+
+{"rides":{"active":[],"scheduled":[]},"deliveries":{"active":[],"scheduled":[]}}
