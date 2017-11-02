@@ -20,15 +20,24 @@ class Grab {
       }
     });
     this.fetch = async ({ method, url, params, data }) => {
-      const response = await this.grabBase({
-        method,
-        url,
-        params,
-        data
-      });
-      return response.data;
+      try {
+        const response = await this.grabBase({
+          method,
+          url,
+          params,
+          data
+        });
+        return response.data;
+      } catch ({ response }) {
+        throw {
+          status: response.status,
+          statusText: "[grab-handler] " + response.statusText,
+          data: response.data
+        };
+      }
     };
     this.getMotorBikePrice = this.getMotorBikePrice.bind(this);
+    this.getCurrentRides = this.getCurrentRides.bind(this);
   }
 
   async getMotorBikePrice(start = {}, end = {}) {
@@ -77,7 +86,7 @@ class Grab {
     };
   }
 
-  async requestRide(requestKey = '', start = {}, end = {}) {
+  async requestRide(requestKey = "", start = {}, end = {}) {
     const payload = {
       services: [
         {
@@ -107,18 +116,24 @@ class Grab {
           }
         }
       ]
-    }
+    };
 
-    return await this.grabBase('/api/passenger/v3/rides', payload, {
+    return await this.grabBase("/api/passenger/v3/rides", payload, {
       headers: {
-        'User-Agent': 'Grab/4.38.3 (Android 5.1.1)',
-        'Content-Type': 'application/json; charset=UTF-8'
+        "User-Agent": "Grab/4.38.3 (Android 5.1.1)",
+        "Content-Type": "application/json; charset=UTF-8"
       }
-    }) 
+    });
   }
 
   async getRideStatus(rideId) {
-    return await this.grabBase.get(`/api/passenger/v3/rides/${rideId}/status`)
+    return await this.grabBase.get(`/api/passenger/v3/rides/${rideId}/status`);
+  }
+  async getCurrentRides() {
+    const url = "/api/passenger/v3/current";
+    const method = "get";
+    const data = await this.fetch({ url, method });
+    return data;
   }
 }
 
