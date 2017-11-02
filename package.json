@@ -6,7 +6,8 @@
   "author": "<muhammad.mustadi@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.0"
+    "axios": "^0.17.0",
+    "ms": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.23.0",

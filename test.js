@@ -4,7 +4,13 @@ require("dotenv").config();
 const Grab = require("./");
 
 const exampleToken = process.env.GRAB_TOKEN;
-const { getMotorBikePrice, getCurrentRides } = new Grab(exampleToken);
+const {
+  getMotorBikePrice,
+  getCurrentRides,
+  getEstimate,
+  requestRide,
+  cancelRide
+} = new Grab(exampleToken);
 
 const TYPE = {
   OBJECT: "object",
@@ -14,6 +20,9 @@ const TYPE = {
   BOOLEAN: "boolean",
   UNDEFINED: "undefined"
 };
+
+const TEST_START = { lat: -6.2266195, long: 106.8073293 };
+const TEST_END = { lat: -6.2266182, long: 106.8073293 };
 
 test("Sanity check", t => {
   t.pass();
@@ -39,4 +48,19 @@ test("Get Current Profile", async t => {
   t.is(typeof data, TYPE.OBJECT);
   t.is(typeof data.rides, TYPE.OBJECT);
   t.is(typeof data.deliveries, TYPE.OBJECT);
+});
+
+test("Book and Cancel", async t => {
+  const { price: { high }, requestKey: { key } } = await getEstimate(
+    TEST_START,
+    TEST_END
+  );
+  t.is(typeof key, TYPE.STRING);
+  t.is(typeof high, TYPE.NUMBER);
+
+  const { requestId } = await requestRide(key, TEST_START, TEST_END);
+  t.is(typeof requestId, TYPE.STRING);
+
+  const data = await cancelRide(requestId);
+  t.is(data, "");
 });

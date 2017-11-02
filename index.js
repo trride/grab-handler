@@ -1,4 +1,5 @@
 const { create } = require("axios");
+const ms = require("ms");
 
 const ARBITRARY_STR = "ARBITRARY";
 
@@ -38,6 +39,10 @@ class Grab {
     };
     this.getMotorBikePrice = this.getMotorBikePrice.bind(this);
     this.getCurrentRides = this.getCurrentRides.bind(this);
+
+    this.getEstimate = this.getMotorBikePrice;
+    this.requestRide = this.requestRide.bind(this);
+    this.cancelRide = this.cancelRide.bind(this);
   }
 
   async getMotorBikePrice(start = {}, end = {}) {
@@ -76,13 +81,17 @@ class Grab {
     const unsanitized = await this.fetch({ url, method, data });
     // Should only return 1 member of array from the defined Services
     const { fixed, lowerBound, upperBound, signature } = unsanitized[0];
+    // console.log(unsanitized[0]);
     return {
       price: {
         fixed,
         high: upperBound / 100,
         low: lowerBound / 100
       },
-      requestKey: signature
+      requestKey: {
+        key: signature,
+        expiresAt: Date.now() + ms("5 minutes")
+      }
     };
   }
 
@@ -118,12 +127,20 @@ class Grab {
       ]
     };
 
-    return await this.grabBase("/api/passenger/v3/rides", payload, {
-      headers: {
-        "User-Agent": "Grab/4.38.3 (Android 5.1.1)",
-        "Content-Type": "application/json; charset=UTF-8"
+    const { data } = await this.grabBase.post(
+      "/api/passenger/v3/rides",
+      payload,
+      {
+        headers: {
+          "User-Agent": "Grab/4.38.3 (Android 5.1.1)",
+          "Content-Type": "application/json; charset=UTF-8"
+        }
       }
-    });
+    );
+
+    return {
+      requestId: data.code
+    };
   }
 
   async getRideStatus(rideId) {
@@ -134,6 +151,12 @@ class Grab {
     const method = "get";
     const data = await this.fetch({ url, method });
     return data;
+  }
+
+  async cancelRide(requestId) {
+    const url = `/api/passenger/v3/rides/${requestId}`;
+    const method = "delete";
+    return await this.fetch({ url, method });
   }
 }
 
