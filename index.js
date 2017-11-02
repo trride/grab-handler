@@ -75,16 +75,60 @@ class Grab {
     };
     const unsanitized = await this.fetch({ url, method, data });
     // Should only return 1 member of array from the defined Services
-    const { fixed, lowerBound, upperBound } = unsanitized[0];
+    const { fixed, lowerBound, upperBound, signature } = unsanitized[0];
     return {
       price: {
         fixed,
         high: upperBound / 100,
         low: lowerBound / 100
-      }
+      },
+      requestKey: signature
     };
   }
 
+  async requestRide(requestKey = "", start = {}, end = {}) {
+    const payload = {
+      services: [
+        {
+          quoteSignature: requestKey,
+          serviceId: SERVICES.GRABBIKE
+        }
+      ],
+      itinerary: [
+        {
+          details: {
+            address: ARBITRARY_STR,
+            keywords: ARBITRARY_STR
+          },
+          coordinates: {
+            latitude: +start.lat,
+            longitude: +start.long
+          }
+        },
+        {
+          details: {
+            address: ARBITRARY_STR,
+            keywords: ARBITRARY_STR
+          },
+          coordinates: {
+            latitude: +end.lat,
+            longitude: +end.long
+          }
+        }
+      ]
+    };
+
+    return await this.grabBase("/api/passenger/v3/rides", payload, {
+      headers: {
+        "User-Agent": "Grab/4.38.3 (Android 5.1.1)",
+        "Content-Type": "application/json; charset=UTF-8"
+      }
+    });
+  }
+
+  async getRideStatus(rideId) {
+    return await this.grabBase.get(`/api/passenger/v3/rides/${rideId}/status`);
+  }
   async getCurrentRides() {
     const url = "/api/passenger/v3/current";
     const method = "get";
