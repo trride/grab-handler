@@ -83,11 +83,7 @@ class Grab {
     const { fixed, lowerBound, upperBound, signature } = unsanitized[0];
     // console.log(unsanitized[0]);
     return {
-      price: {
-        fixed,
-        high: upperBound / 100,
-        low: lowerBound / 100
-      },
+      price: upperBound / 100,
       requestKey: {
         key: signature,
         expiresAt: Date.now() + ms("5 minutes")

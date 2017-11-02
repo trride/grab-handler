@@ -36,10 +36,7 @@ test("Get Motor Bike Price", async t => {
     { lat: -6.2266182, long: 106.8073293 }
   );
   t.is(typeof data, TYPE.OBJECT);
-  t.is(typeof data.price, TYPE.OBJECT);
-  t.is(typeof data.price.fixed, TYPE.BOOLEAN);
-  t.is(typeof data.price.high, TYPE.NUMBER);
-  t.is(typeof data.price.low, TYPE.NUMBER);
+  t.is(typeof data.price, TYPE.NUMBER);
 });
 
 test("Get Current Profile", async t => {
@@ -51,12 +48,12 @@ test("Get Current Profile", async t => {
 });
 
 test("Book and Cancel", async t => {
-  const { price: { high }, requestKey: { key } } = await getEstimate(
+  const { price, requestKey: { key } } = await getEstimate(
     TEST_START,
     TEST_END
   );
   t.is(typeof key, TYPE.STRING);
-  t.is(typeof high, TYPE.NUMBER);
+  t.is(typeof price, TYPE.NUMBER);
 
   const { requestId } = await requestRide(key, TEST_START, TEST_END);
   t.is(typeof requestId, TYPE.STRING);
