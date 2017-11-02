@@ -17,5 +17,8 @@
     "release": "np",
     "test": "ava",
     "watch": "npm test -- --watch --verbose"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
