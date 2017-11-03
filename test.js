@@ -31,7 +31,7 @@ test("Sanity check", t => {
 
 test("Get Motor Bike Price", async t => {
   //   t.is(typeof exampleToken, "object");
-  const data = await getMotorBikePrice(
+  const data = await getEstimate(
     { lat: -7.2266182, long: 106.8073293 },
     { lat: -6.2266182, long: 106.8073293 }
   );

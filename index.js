@@ -1,7 +1,7 @@
 const { create } = require("axios");
 const ms = require("ms");
 
-const ARBITRARY_STR = "ARBITRARY";
+const ARBITRARY_STR = "TRIDE";
 
 const SERVICES = {
   GRABBIKE: 71
@@ -102,7 +102,7 @@ class Grab {
       itinerary: [
         {
           details: {
-            address: ARBITRARY_STR,
+            address: start.name || ARBITRARY_STR,
             keywords: ARBITRARY_STR
           },
           coordinates: {
@@ -112,7 +112,7 @@ class Grab {
         },
         {
           details: {
-            address: ARBITRARY_STR,
+            address: end.name || ARBITRARY_STR,
             keywords: ARBITRARY_STR
           },
           coordinates: {
