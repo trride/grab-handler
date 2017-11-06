@@ -37,15 +37,14 @@ class Grab {
         };
       }
     };
-    this.getMotorBikePrice = this.getMotorBikePrice.bind(this);
+    this.getEstimate = this.getEstimate.bind(this);
     this.getCurrentRides = this.getCurrentRides.bind(this);
 
-    this.getEstimate = this.getMotorBikePrice;
     this.requestRide = this.requestRide.bind(this);
     this.cancelRide = this.cancelRide.bind(this);
   }
 
-  async getMotorBikePrice(start = {}, end = {}) {
+  async getEstimate(start = {}, end = {}) {
     if (!start.long || !start.lat || !end.lat || !end.long) {
       throw new Error("no start or end lat/lon");
     }
@@ -83,6 +82,7 @@ class Grab {
     const { fixed, lowerBound, upperBound, signature } = unsanitized[0];
     // console.log(unsanitized[0]);
     return {
+      service: 'grab',
       price: upperBound / 100,
       requestKey: {
         key: signature,
@@ -135,13 +135,15 @@ class Grab {
     );
 
     return {
+      service: 'grab',
       requestId: data.code
     };
   }
 
-  async getRideStatus(rideId) {
+  async rideStatus(rideId) {
     return await this.grabBase.get(`/api/passenger/v3/rides/${rideId}/status`);
   }
+
   async getCurrentRides() {
     const url = "/api/passenger/v3/current";
     const method = "get";
