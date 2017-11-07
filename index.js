@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { create } = require("axios");
 const ms = require("ms");
 
@@ -12,8 +13,11 @@ class Grab {
     if (!grabToken) {
       throw new Error("No Grab Token supplied");
     }
+
+    this.baseURL = process.env.NODE_ENV == 'development' ? process.env.DEV_BASE_URL + '/grab' : 'https://p.grabtaxi.com'
+
     this.grabBase = create({
-      baseURL: "https://p.grabtaxi.com",
+      baseURL: this.baseURL,
       responseType: "json",
       timeout: 10000,
       headers: {
@@ -141,7 +145,62 @@ class Grab {
   }
 
   async rideStatus(rideId) {
-    return await this.grabBase.get(`/api/passenger/v3/rides/${rideId}/status`);
+    return this.grabBase
+      .get(`/api/passenger/v3/rides/${rideId}/status`)
+      .then(response => {
+        const { data } = response
+
+        const driver = {
+          name: "Dummy Driver",
+          rating: 4.8,
+          pictureUrl: "http://google.com",
+          phoneNumber: "081234567890",
+          vehicle: {
+            plate: "B 1234 AA",
+            name: "Honda Vario"
+          }
+        }
+
+        const payload = {
+          service: 'grab',
+          requestId: rideId,
+          driver
+        }
+
+        let status = data.status ? data.status.toLowerCase() : data.reason.toLowerCase()
+
+        if (status == 'allocated' && data.activeStepIndex > 0)
+          status = 'on_the_way'
+
+        const result = {
+          'allocating': {
+            status: 'processing',
+            ...payload
+          },
+          'unallocated': {
+            status: 'not_found',
+            ...payload
+          },
+          'allocated': {
+            status: 'accepted',
+            ...payload
+          },
+          'cancelled': {
+            status: 'canceled',
+            ...payload
+          },
+          'on_the_way': {
+            status: 'on_the_way',
+            ...payload
+          },
+          'completed': {
+            status: 'completed',
+            ...payload
+          }
+        }
+  
+        return result[status]
+      })
   }
 
   async getCurrentRides() {
