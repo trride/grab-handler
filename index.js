@@ -46,6 +46,7 @@ class Grab {
 
     this.requestRide = this.requestRide.bind(this);
     this.cancelRide = this.cancelRide.bind(this);
+    this.rideStatus = this.rideStatus.bind(this)
   }
 
   async getEstimate(start = {}, end = {}) {
@@ -167,7 +168,7 @@ class Grab {
           driver
         }
 
-        let status = data.status ? data.status.toLowerCase() : data.reason.toLowerCase()
+        let status = data.status ? data.status.toLowerCase() : data.reason && data.reason.toLowerCase()
 
         if (status == 'allocated' && data.activeStepIndex > 0)
           status = 'on_the_way'
