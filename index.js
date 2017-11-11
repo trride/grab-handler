@@ -149,16 +149,18 @@ class Grab {
     return this.grabBase
       .get(`/api/passenger/v3/rides/${rideId}/status`)
       .then(response => {
+
         const { data } = response
+        const { driver, vehicle } = await this.grabBase.get(`/api/passenger/v3/rides/${rideId}`)
 
         const driver = {
-          name: "Dummy Driver",
-          rating: 4.8,
-          pictureUrl: "http://google.com",
-          phoneNumber: "081234567890",
+          name: driver.name,
+          rating: driver.rating,
+          pictureUrl: driver.imageURL,
+          phoneNumber: "081210361048", // TODO: fetch driver's phone number
           vehicle: {
-            plate: "B 1234 AA",
-            name: "Honda Vario"
+            plate: vehicle.plateNumber,
+            name: vehicle.model
           }
         }
 
