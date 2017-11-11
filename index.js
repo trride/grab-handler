@@ -148,10 +148,11 @@ class Grab {
   async rideStatus(rideId) {
     return this.grabBase
       .get(`/api/passenger/v3/rides/${rideId}/status`)
-      .then(response => {
+      .then(async response => {
 
         const { data } = response
-        const { driver, vehicle } = await this.grabBase.get(`/api/passenger/v3/rides/${rideId}`)
+        const driverData = await this.grabBase.get(`/api/passenger/v3/rides/${rideId}`)
+        const { driver, vehicle } = driverData.data
 
         const driver = {
           name: driver.name,
